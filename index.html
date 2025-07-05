@@ -46,6 +46,12 @@
             color: #2c3e50;
         }
         
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
         nav ul {
             list-style: none;
             display: flex;
@@ -60,6 +66,34 @@
         
         nav a:hover {
             color: #3498db;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .lang-btn {
+            padding: 0.3rem 0.8rem;
+            border: 1px solid #ddd;
+            background: #fff;
+            color: #555;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .lang-btn:hover {
+            border-color: #3498db;
+            color: #3498db;
+        }
+        
+        .lang-btn.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
         }
         
         main {
@@ -224,19 +258,12 @@
             }
             
             nav ul {
-                flex-direction: column;
-                gap: 1rem;
+                display: none;
             }
             
             .services-grid {
                 grid-template-columns: 1fr;
             }
-        }
-        
-        .languages {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
         }
     </style>
 </head>
@@ -244,61 +271,64 @@
     <header>
         <nav class="container">
             <div class="logo">Gabriel Grassia</div>
-            <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#expertise">Expertise</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+                    <li><a href="#expertise" data-en="Expertise" data-es="Experiencia">Expertise</a></li>
+                    <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" onclick="setLanguage('es')">ES</button>
+                </div>
+            </div>
         </nav>
     </header>
     
     <main>
         <section class="hero">
             <div class="container">
-                <h1>B2B CRM Consultant</h1>
-                <p>Zoho CRM Implementation & Automation Expert</p>
-                <p>I help B2B companies transform their CRM systems into revenue-driving engines</p>
-                <a href="#contact" class="cta-button">Let's Talk</a>
-                <div class="languages">
-                    <p>🌍 English • Español • Français</p>
-                </div>
+                <h1 data-en="B2B CRM Consultant" data-es="Consultor CRM B2B">B2B CRM Consultant</h1>
+                <p data-en="Zoho CRM Implementation & Automation Expert" data-es="Experto en Implementación y Automatización de Zoho CRM">Zoho CRM Implementation & Automation Expert</p>
+                <p data-en="I help B2B companies transform their CRM systems into revenue-driving engines" data-es="Ayudo a empresas B2B a convertir sus CRM en motores de crecimiento">I help B2B companies transform their CRM systems into revenue-driving engines</p>
+                <a href="#contact" class="cta-button" data-en="Let's Talk" data-es="Hablemos">Let's Talk</a>
             </div>
         </section>
         
         <section id="services" class="services">
             <div class="container">
-                <h2>How I Can Help</h2>
+                <h2 data-en="How I Can Help" data-es="Cómo Puedo Ayudarte">How I Can Help</h2>
                 <div class="services-grid">
                     <div class="service-card">
-                        <h3>CRM Implementation</h3>
-                        <p>Full setup and configuration of CRM systems tailored to your business needs</p>
+                        <h3 data-en="CRM Implementation" data-es="Implementación CRM">CRM Implementation</h3>
+                        <p data-en="Full setup and configuration of CRM systems tailored to your business needs" data-es="Configuración completa de sistemas CRM adaptados a las necesidades de tu negocio">Full setup and configuration of CRM systems tailored to your business needs</p>
                         <ul>
-                            <li>Zoho CRM, Salesforce, HubSpot</li>
-                            <li>Custom field configuration</li>
-                            <li>Module customization</li>
-                            <li>User training & adoption</li>
+                            <li data-en="Zoho CRM, Salesforce, HubSpot" data-es="Zoho CRM, Salesforce, HubSpot">Zoho CRM, Salesforce, HubSpot</li>
+                            <li data-en="Custom field configuration" data-es="Configuración de campos personalizados">Custom field configuration</li>
+                            <li data-en="Module customization" data-es="Personalización de módulos">Module customization</li>
+                            <li data-en="User training & adoption" data-es="Formación y adopción de usuarios">User training & adoption</li>
                         </ul>
                     </div>
                     
                     <div class="service-card">
-                        <h3>Marketing Automation</h3>
-                        <p>Build automated workflows that nurture leads and drive conversions</p>
+                        <h3 data-en="Marketing Automation" data-es="Automatización de Marketing">Marketing Automation</h3>
+                        <p data-en="Build automated workflows that nurture leads and drive conversions" data-es="Construyo flujos automatizados que nutren leads y generan conversiones">Build automated workflows that nurture leads and drive conversions</p>
                         <ul>
-                            <li>Lead scoring & nurturing</li>
-                            <li>Email campaign automation</li>
-                            <li>Multi-channel workflows</li>
-                            <li>Performance tracking</li>
+                            <li data-en="Lead scoring & nurturing" data-es="Puntuación y nutrición de leads">Lead scoring & nurturing</li>
+                            <li data-en="Email campaign automation" data-es="Automatización de campañas de email">Email campaign automation</li>
+                            <li data-en="Multi-channel workflows" data-es="Flujos de trabajo multicanal">Multi-channel workflows</li>
+                            <li data-en="Performance tracking" data-es="Seguimiento de rendimiento">Performance tracking</li>
                         </ul>
                     </div>
                     
                     <div class="service-card">
-                        <h3>Data & Integration</h3>
-                        <p>Connect your tools and ensure clean, actionable data</p>
+                        <h3 data-en="Data & Integration" data-es="Datos e Integración">Data & Integration</h3>
+                        <p data-en="Connect your tools and ensure clean, actionable data" data-es="Conecto tus herramientas y aseguro datos limpios y accionables">Connect your tools and ensure clean, actionable data</p>
                         <ul>
-                            <li>Database cleanup & deduplication</li>
-                            <li>API integrations</li>
-                            <li>Custom automation (Python, SQL)</li>
-                            <li>Reporting dashboards</li>
+                            <li data-en="Database cleanup & deduplication" data-es="Limpieza y deduplicación de bases de datos">Database cleanup & deduplication</li>
+                            <li data-en="API integrations" data-es="Integraciones API">API integrations</li>
+                            <li data-en="Custom automation (Python, SQL)" data-es="Automatización personalizada (Python, SQL)">Custom automation (Python, SQL)</li>
+                            <li data-en="Reporting dashboards" data-es="Dashboards de informes">Reporting dashboards</li>
                         </ul>
                     </div>
                 </div>
@@ -307,31 +337,31 @@
         
         <section id="expertise" class="expertise">
             <div class="container">
-                <h2>Technical Expertise</h2>
+                <h2 data-en="Technical Expertise" data-es="Experiencia Técnica">Technical Expertise</h2>
                 <div class="expertise-grid">
                     <div class="expertise-item">
-                        <h4>CRM Platforms</h4>
+                        <h4 data-en="CRM Platforms" data-es="Plataformas CRM">CRM Platforms</h4>
                         <p>Zoho One, Salesforce, HubSpot, Pardot</p>
                     </div>
                     <div class="expertise-item">
-                        <h4>Automation Tools</h4>
+                        <h4 data-en="Automation Tools" data-es="Herramientas de Automatización">Automation Tools</h4>
                         <p>Zapier, Make.com, Zoho Flow</p>
                     </div>
                     <div class="expertise-item">
-                        <h4>Programming</h4>
+                        <h4 data-en="Programming" data-es="Programación">Programming</h4>
                         <p>Python, SQL, JavaScript, Deluge</p>
                     </div>
                     <div class="expertise-item">
-                        <h4>Analytics</h4>
+                        <h4 data-en="Analytics" data-es="Analítica">Analytics</h4>
                         <p>Looker Studio, Tableau, Google Analytics</p>
                     </div>
                     <div class="expertise-item">
-                        <h4>Marketing Tools</h4>
+                        <h4 data-en="Marketing Tools" data-es="Herramientas de Marketing">Marketing Tools</h4>
                         <p>Mailchimp, Klaviyo, SFMC</p>
                     </div>
                     <div class="expertise-item">
-                        <h4>Industries</h4>
-                        <p>B2B SaaS, EdTech, Agencies</p>
+                        <h4 data-en="Industries" data-es="Industrias">Industries</h4>
+                        <p data-en="B2B SaaS, EdTech, Agencies" data-es="B2B SaaS, EdTech, Agencias">B2B SaaS, EdTech, Agencies</p>
                     </div>
                 </div>
             </div>
@@ -339,12 +369,11 @@
         
         <section id="contact" class="contact">
             <div class="container">
-                <h2>Ready to Optimize Your CRM?</h2>
-                <p>Let's discuss how I can help transform your customer operations</p>
+                <h2 data-en="Ready to Optimize Your CRM?" data-es="¿Listo para Optimizar tu CRM?">Ready to Optimize Your CRM?</h2>
+                <p data-en="Let's discuss how I can help transform your customer operations" data-es="Hablemos sobre cómo puedo ayudarte a transformar tus operaciones de cliente">Let's discuss how I can help transform your customer operations</p>
                 <div class="contact-info">
                     <p><a href="mailto:grassia.gabriel@gmail.com">📧 grassia.gabriel@gmail.com</a></p>
                     <p><a href="https://www.linkedin.com/in/gabriel-grassia" target="_blank">💼 LinkedIn: gabriel-grassia</a></p>
-                    <p>📱 +34 722 394 855</p>
                 </div>
             </div>
         </section>
@@ -352,11 +381,41 @@
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 Gabriel Grassia - CRM Consultant</p>
+            <p>&copy; 2025 Gabriel Grassia - <span data-en="CRM Consultant" data-es="Consultor CRM">CRM Consultant</span></p>
         </div>
     </footer>
     
     <script>
+        // Language switching functionality
+        let currentLang = 'en';
+        
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-en][data-es]').forEach(element => {
+                element.textContent = element.getAttribute(`data-${lang}`);
+            });
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Store preference
+            localStorage.setItem('preferred-language', lang);
+        }
+        
+        // Check for saved language preference
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
+            if (savedLang === 'es') {
+                document.querySelector('.lang-btn[onclick="setLanguage(\'es\')"]').click();
+            }
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
